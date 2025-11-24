@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: API Tienda de Maquillaje
+  version: 1.0.0
+  description: API para gestión de productos de maquillaje
+
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /productos:
+    get:
+      summary: Obtener todos los productos
+      responses:
+        '200':
+          description: Lista de productos
+
+    post:
+      summary: Crear un nuevo producto
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                precio:
+                  type: number
+                descripcion:
+                  type: string
+      responses:
+        '201':
+          description: Producto creado
+
+  /productos/{id}:
+    get:
+      summary: Obtener un producto por id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: Producto encontrado
+        '404':
+          description: Producto no encontrado
+
+    put:
+      summary: Actualizar un producto por id
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nombre:
+                  type: string
+                precio:
+                  type: number
+                descripcion:
+                  type: string
+      responses:
+        '200':
+          description: Producto actualizado correctamente
+        '404':
+          description: Producto no encontrado
