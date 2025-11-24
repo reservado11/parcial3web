@@ -8,7 +8,7 @@ let productos = [
     { id: 2, nombre: "Labial Rojo", precio: 38000, descripcion: "Labial de larga duración color rojo intenso" }
 ];
 
-// Obtener todos los productos
+// Obtiene todos los productos
 const obtenerProductos = () => productos;
 exports.obtenerProductos = obtenerProductos;
 
